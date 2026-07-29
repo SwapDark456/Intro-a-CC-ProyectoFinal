@@ -294,48 +294,48 @@ while ejecutando:
 
     # Menu
     if estado == "MENU":
-        titulo = fuente_titulo.render("> PONG HABILIDADES <", True, AZUL)
+        titulo = fuente_titulo.render("> PONG HABILIDADES <", False, AZUL)
         pantalla.blit(titulo, (ANCHO // 2 - titulo.get_width() // 2, 100))
 
         for idx, opcion in enumerate(opciones_menu):
             color = AMARILLO if idx == opcion_menu_idx else GRIS
             prefijo = "> " if idx == opcion_menu_idx else "  "
-            txt = fuente_menu.render(prefijo + opcion, True, color)
+            txt = fuente_menu.render(prefijo + opcion, False, color)
             pantalla.blit(txt, (ANCHO // 2 - 140, 260 + idx * 70))
 
-        sub = fuente_sub.render("Usa Flechas / W-S para navegar y ENTER para seleccionar", True, GRIS)
+        sub = fuente_sub.render("Usa Flechas / W-S para navegar y ENTER para seleccionar", False, GRIS)
         pantalla.blit(sub, (ANCHO // 2 - sub.get_width() // 2, ALTO - 50))
 
     # Seleccion
     elif estado == "SELECCION":
-        titulo = fuente_titulo.render("SELECCIÓN DE HABILIDADES", True, BLANCO)
+        titulo = fuente_titulo.render("SELECCIÓN DE HABILIDADES", False, BLANCO)
         pantalla.blit(titulo, (ANCHO // 2 - titulo.get_width() // 2, 50))
 
         # J1
         pygame.draw.rect(pantalla, GRIS_OSCURO, (100, 160, 360, 380), border_radius=12)
         pygame.draw.rect(pantalla, AZUL, (100, 160, 360, 380), 3, border_radius=12)
-        txt_j1 = fuente_menu.render("JUGADOR 1 (Space)", True, AZUL)
+        txt_j1 = fuente_menu.render("JUGADOR 1 (Space)", False, AZUL)
         pantalla.blit(txt_j1, (130, 180))
 
         for idx, hab_key in enumerate(LISTA_HABILIDADES):
             color = VERDE if idx == habilidad_j1_idx else BLANCO
             marcador = "[X] " if idx == habilidad_j1_idx else "[  ] "
-            txt_hab = fuente_hud.render(marcador + HABILIDADES[hab_key]["nombre"], True, color)
+            txt_hab = fuente_hud.render(marcador + HABILIDADES[hab_key]["nombre"], False, color)
             pantalla.blit(txt_hab, (120, 240 + idx * 45))
 
         # J2
         pygame.draw.rect(pantalla, GRIS_OSCURO, (540, 160, 360, 380), border_radius=12)
         pygame.draw.rect(pantalla, ROJO, (540, 160, 360, 380), 3, border_radius=12)
-        txt_j2 = fuente_menu.render("JUGADOR 2 (Enter)", True, ROJO)
+        txt_j2 = fuente_menu.render("JUGADOR 2 (Enter)", False, ROJO)
         pantalla.blit(txt_j2, (560, 180))
 
         for idx, hab_key in enumerate(LISTA_HABILIDADES):
             color = VERDE if idx == habilidad_j2_idx else BLANCO
             marcador = "[X] " if idx == habilidad_j2_idx else "[  ] "
-            txt_hab = fuente_hud.render(marcador + HABILIDADES[hab_key]["nombre"], True, color)
+            txt_hab = fuente_hud.render(marcador + HABILIDADES[hab_key]["nombre"], False, color)
             pantalla.blit(txt_hab, (560, 240 + idx * 45))
 
-        sub = fuente_sub.render("Presiona ENTER o ESC para guardar y volver al Menú", True, AMARILLO)
+        sub = fuente_sub.render("Presiona ENTER o ESC para guardar y volver al Menú", False, AMARILLO)
         pantalla.blit(sub, (ANCHO // 2 - sub.get_width() // 2, ALTO - 40))
 
     # Play
@@ -365,8 +365,8 @@ while ejecutando:
         pygame.draw.ellipse(pantalla, BLANCO, pelota_rect)
 
         # Score
-        txt_puntos_j1 = fuente_titulo.render(str(j1_puntos), True, BLANCO)
-        txt_puntos_j2 = fuente_titulo.render(str(j2_puntos), True, BLANCO)
+        txt_puntos_j1 = fuente_titulo.render(str(j1_puntos), False, BLANCO)
+        txt_puntos_j2 = fuente_titulo.render(str(j2_puntos), False, BLANCO)
         pantalla.blit(txt_puntos_j1, (ANCHO // 4, 30))
         pantalla.blit(txt_puntos_j2, (3 * ANCHO // 4, 30))
 
@@ -376,7 +376,7 @@ while ejecutando:
         estado_j1 = "LISTO (ESPACIO)" if restante_j1 == 0 else f"{restante_j1:.1f}s"
         col_j1 = VERDE if restante_j1 == 0 else ROJO
 
-        hud_j1 = fuente_hud.render(f"J1 [{HABILIDADES[hab_j1_key]['nombre']}]: {estado_j1}", True, col_j1)
+        hud_j1 = fuente_hud.render(f"J1 [{HABILIDADES[hab_j1_key]['nombre']}]: {estado_j1}", False, col_j1)
         pantalla.blit(hud_j1, (30, ALTO - 40))
 
         cd_max_j2 = HABILIDADES[hab_j2_key]["cooldown"]
@@ -384,7 +384,7 @@ while ejecutando:
         estado_j2 = "LISTO (ENTER)" if restante_j2 == 0 else f"{restante_j2:.1f}s"
         col_j2 = VERDE if restante_j2 == 0 else ROJO
 
-        hud_j2 = fuente_hud.render(f"J2 [{HABILIDADES[hab_j2_key]['nombre']}]: {estado_j2}", True, col_j2)
+        hud_j2 = fuente_hud.render(f"J2 [{HABILIDADES[hab_j2_key]['nombre']}]: {estado_j2}", False, col_j2)
         pantalla.blit(hud_j2, (ANCHO - 380, ALTO - 40))
 
     pygame.display.flip()
