@@ -314,7 +314,7 @@ while ejecutando:
         # J1
         pygame.draw.rect(pantalla, GRIS_OSCURO, (100, 160, 360, 380), border_radius=12)
         pygame.draw.rect(pantalla, AZUL, (100, 160, 360, 380), 3, border_radius=12)
-        txt_j1 = fuente_menu.render("JUGADOR 1", True, AZUL)
+        txt_j1 = fuente_menu.render("JUGADOR 1 (Space)", True, AZUL)
         pantalla.blit(txt_j1, (130, 180))
 
         for idx, hab_key in enumerate(LISTA_HABILIDADES):
@@ -326,7 +326,7 @@ while ejecutando:
         # J2
         pygame.draw.rect(pantalla, GRIS_OSCURO, (540, 160, 360, 380), border_radius=12)
         pygame.draw.rect(pantalla, ROJO, (540, 160, 360, 380), 3, border_radius=12)
-        txt_j2 = fuente_menu.render("JUGADOR 2", True, ROJO)
+        txt_j2 = fuente_menu.render("JUGADOR 2 (Enter)", True, ROJO)
         pantalla.blit(txt_j2, (560, 180))
 
         for idx, hab_key in enumerate(LISTA_HABILIDADES):
